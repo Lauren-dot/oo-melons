@@ -69,14 +69,13 @@ class InternationalMelonOrder(AbstractMelonOrder):
 
 class GovernmentMelonOrder(AbstractMelonOrder):
 
-    tax = 0
-    passed_inspection = False
+    def __init__(self, species, qty):
+        super().__init__(species, qty, "government", 0)
+        self.passed_inspection = False 
 
-    def mark_inspection(passed):
-            """Record wether inspection passed."""
+    def mark_inspection(self, passed):
+        """Record wether inspection passed."""
 
-            self.passed_inspection = True
+        self.passed_inspection = passed
 
-    
-class GetTotalMixin:
     
